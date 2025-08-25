@@ -18,6 +18,7 @@ func main() {
 	switch os.Args[1] {
 	case "init":
 		gitcommands.Gitinit()
+	case "help":
 
 	default:
 		fmt.Println("Unknown command: ", os.Args[1])
