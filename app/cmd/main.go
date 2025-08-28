@@ -20,6 +20,10 @@ func main() {
 		gitcommands.Gitinit()
 	case "help":
 
+
+	case "cat-file": 
+		gitcommands.Gitcatfile(os.Args[2] , os.Args[3])
+
 	default:
 		fmt.Println("Unknown command: ", os.Args[1])
 		os.Exit(1)
