@@ -19,7 +19,7 @@ func main() {
 	case "init":
 		gitcommands.Gitinit()
 	case "help":
-
+		gitcommands.Githelp()
 
 	case "cat-file": 
 		gitcommands.Gitcatfile(os.Args[2] , os.Args[3])
