@@ -25,7 +25,8 @@ func main() {
 		gitcommands.Gitcatfile(os.Args[2] , os.Args[3])
 
 	default:
-		fmt.Println("Unknown command: ", os.Args[1])
-		os.Exit(1)
+
+		msg := fmt.Sprintf("git: 'v' is not a git command. See 'git --help'." , os.Args[1])
+		os.Stdout.Write([]byte(msg))
 	}
 }
