@@ -24,9 +24,20 @@ func main() {
 	case "cat-file": 
 		gitcommands.Gitcatfile(os.Args[2] , os.Args[3])
 
+	case "hash-object": 
+	
+		command := gitcommands.GitHashObject{}
+		RunCommand(&command)
+
 	default:
 
-		msg := fmt.Sprintf("git: 'v' is not a git command. See 'git --help'." , os.Args[1])
+		msg := fmt.Sprintf("git: '%v' is not a git command. See 'git --help'." , os.Args[1])
 		os.Stdout.Write([]byte(msg))
 	}
+}
+
+
+func RunCommand(command gitcommands.GitClient) {
+	command.Init()
+	command.Execute()
 }
