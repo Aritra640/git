@@ -18,11 +18,12 @@ type GitHashObject struct {
 
 func (h *GitHashObject) Init() {
 
-	h.flag = os.Args[3]
-	h.file = os.Args[4]
+	if len(os.Args) == 4 {
+		h.flag = os.Args[2]
+		h.file = os.Args[3]
 
-	if h.file == "" {
-		h.file = h.flag
+	} else {
+		h.file = os.Args[2]
 		h.flag = ""
 	}
 }
