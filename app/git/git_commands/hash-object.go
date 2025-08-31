@@ -88,5 +88,5 @@ func (h *GitHashObject) Execute() {
 		}
 	}
 
-	os.Stdout.Write([]byte(hexHash))
+	fmt.Println(hexHash)
 }
