@@ -33,6 +33,12 @@ func main() {
 	case "status": 
 		log.Println("show status")
 
+	case "add": 
+
+	case "commit": 
+
+	case "push":
+
 	default:
 
 		msg := fmt.Sprintf("git: '%v' is not a git command. See 'git --help'." , os.Args[1])
