@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	gitcommands "github.com/Aritra640/git/app/git/git_commands"
@@ -28,6 +29,9 @@ func main() {
 	
 		command := gitcommands.GitHashObject{}
 		RunCommand(&command)
+
+	case "status": 
+		log.Println("show status")
 
 	default:
 
