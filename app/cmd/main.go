@@ -39,6 +39,10 @@ func main() {
 
 	case "push":
 
+	case "ls-tree":
+		command := gitcommands.Git_ls_tree{}
+		RunCommand(&command)
+
 	default:
 
 		msg := fmt.Sprintf("git: '%v' is not a git command. See 'git --help'." , os.Args[1])
