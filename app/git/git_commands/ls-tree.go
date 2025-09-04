@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 type Git_ls_tree struct {
@@ -65,8 +66,24 @@ func (g *Git_ls_tree) Execute() {
 	if err != nil {
 		panic(err)
 	}
+	decompressedStr := string(decompressedData)
+	parts := strings.Split(decompressedStr, "\x00")
+	if len(parts) < 2 {
+		log.Fatalf("expected at least 2 parts after splitting")
+	}
 
-	// Convert to string and print
-	fmt.Println(string(decompressedData))
+	treeContent := parts[1:]
+	var names []string
+	for _, e := range treeContent {
+		if strings.Contains(e, " ") {
+			fields := strings.Split(e, " ")
+			if len(fields) > 1 {
+				names = append(names, fields[1])
+			}
+		}
+	}
+	for _, name := range names {
+		fmt.Println(name)
+	}
 
 }
